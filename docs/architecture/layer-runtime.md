@@ -188,6 +188,57 @@ and swipe paths do not use it. There is no shared interaction-owner role,
 association graph, branch registry, or outside-branch resolution operation on
 current `main`.
 
+### Layer content boundary — AST-038 implementation projection
+
+[AST-038](../specs/AST-038-layer-text-boundary/spec.md) owns the accepted
+**visual-only** text/layout boundary. Behavior and accessibility remain unchanged.
+
+The private text baseline is applied in both `useLayer` renderers and the Dialog,
+Lightbox, MobileNav, BottomSheetPanel, and ToastViewport content roots. Lab Drawer
+uses equivalent local declarations without a public reset export. Component and
+caller styling remains stronger. Existing padding normalization stays separate.
+The private `data-astryx-layer-content` marker is used only for CSS trailing-edge
+classification, never keyboard ownership. A separate private reset invalidates
+Toolbar's inherited `--_tab-indicator-bottom`; local Toolbars still establish
+their own rail offset. No ARIA defaults, roles, focus filtering, or portals are added.
+
+`createLayerScopedContext` registers presentation defaults with
+`LayerContentBoundary`. Mixed contexts may register a visual-field projection:
+size/layout/density reset while values, callbacks, roles, availability, and other
+semantic fields remain live. ButtonGroup and AvatarGroup instead keep their
+original membership context and add a separate private visual context, since
+presence controls disabled state and tooltip focusability. Their public hooks
+and Context/Provider shapes remain unchanged. Semantic-only contexts use ordinary
+React context; no compensating menu, sheet, or navigation re-provisioning is needed.
+
+Explicit visual providers inside content still win. Each boundary snapshots its
+registered chain at mount so a later lazy import cannot insert providers and
+remount live state/focus. Existing native depth-provider seams retain their
+original depth values; raw Layer, sheet panels, and toast content use the private
+visual boundary directly. Toast page children stay outside it.
+
+#### Narrow visual gaps retained to preserve semantics
+
+- InputGroup's mixed membership controls Field markup and label/description
+  associations as well as connected layout. It remains unchanged; only its
+  separate SizeContext is isolated. Connected border/layout isolation needs a
+  dedicated private visual read across its input consumers.
+- LayoutArea chooses semantic elements; Stepper and navigation render modes
+  control DOM/registration/dismissal. Those mixed contexts remain unchanged.
+  Any remaining inherited spacing or presentation requires a separately traced
+  visual seam, not whole-context reset.
+- Lab Drawer has no pre-existing Core visual-boundary seam. Adding
+  `LayerDepthProvider` would change dismissal depth, and exporting the private
+  reset would expand public API. Its complete text and targeted CSS baseline
+  ships without provider isolation; a package-private sharing seam is follow-up.
+- AvatarGroupOverflow retains its existing membership/size read; only Avatar's
+  visual read is split from tooltip focusability in this change.
+
+Focused unit tests cover visual isolation, mixed semantic-field identity and live
+updates, existing labels/disabled/selection, explicit inner providers, and state
+retention. Existing keyboard/menu/native-root suites and real Chromium evidence
+check unchanged behavior. These gaps are not claims of complete provider isolation.
+
 ### Current global and nonparticipating surfaces
 
 LayerProvider supplies Toast configuration and mounts ToastViewport. It is not a
@@ -320,7 +371,8 @@ be updated only as that work ships.
 
 ## Deciding specs
 
-No system spec changes the shipped runtime described here.
+`spec:AST-038` governs the layer content boundary projected above. It does not
+change the hosting runtime described here.
 
 `spec:AST-003` is accepted but unimplemented. It defines the approved next
 runtime and must move to `shipped` before its requirements are incorporated into

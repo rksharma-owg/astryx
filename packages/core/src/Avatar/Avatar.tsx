@@ -40,7 +40,10 @@ import {
   AvatarStatusLabelContext,
   type AvatarStatusLabelTarget,
 } from './AvatarStatusLabelContext';
-import {useAvatarGroup} from '../AvatarGroup/AvatarGroupContext';
+import {
+  useAvatarGroup,
+  useAvatarGroupVisual,
+} from '../AvatarGroup/AvatarGroupContext';
 import {mergeProps} from '../utils';
 import {useMergedRefs} from '../hooks/useMergedRefs';
 import {themeProps} from '../utils/themeProps';
@@ -582,7 +585,8 @@ export function Avatar({
   const a11yLabelProps = accessibleName
     ? {'aria-label': accessibleName}
     : undefined;
-  const avatarGroup = useAvatarGroup();
+  const avatarMembership = useAvatarGroup();
+  const avatarGroup = useAvatarGroupVisual();
   const resolvedSize = avatarGroup?.size ?? size;
   const resolvedShape = avatarGroup?.shape ?? shape;
   const numericSize = useMemo(() => resolveSize(resolvedSize), [resolvedSize]);
@@ -853,7 +857,7 @@ export function Avatar({
         // tooltip is active, add a tab stop so keyboard users can reveal it
         // (WCAG 1.4.13 / 2.1.1) — matching Timestamp/Button. Suppressed inside
         // an AvatarGroup, which owns a single roving tab stop for its members.
-        tabIndex={showTooltip && !avatarGroup ? 0 : undefined}
+        tabIndex={showTooltip && !avatarMembership ? 0 : undefined}
         data-testid={testId}
         {...describedByProp}
         {...rootStylexProps}>

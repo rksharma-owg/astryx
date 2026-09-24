@@ -91,7 +91,7 @@ export const docs = {
   ],
   usage: {
     description:
-      'Core positioning hook for rendering overlay content using CSS Anchor Positioning and the Popover API. Use it as the foundation for custom popovers, hover cards, tooltips, and fixed-position layers when higher-level components are not enough.',
+      'Core positioning hook for rendering overlay content using CSS Anchor Positioning and the Popover API. Use it as the foundation for custom popovers, hover cards, tooltips, and fixed-position layers when higher-level components are not enough. Both modes use theme body text defaults and isolate separable visual defaults without changing semantic provider inheritance, behavior, or accessibility. Apply intentional formatting through render styles or content, and provide intended content context inside the rendered layer.',
     bestPractices: [
       {
         guidance: true,
@@ -124,7 +124,7 @@ export const docs = {
 /** @type {import('@astryxdesign/cli/authoring').HookTranslationDoc} */
 export const docsDense = {
   description:
-    'Core positioning hook for overlay content via CSS Anchor Positioning + Popover API. Foundation for custom popovers, hover cards, tooltips, fixed-position layers.',
+    'Core positioning hook for overlay content via CSS Anchor Positioning + Popover API. Foundation for custom popovers, hover cards, tooltips, fixed-position layers. Both modes use theme body defaults and isolate separable visual defaults without changing semantic provider inheritance, behavior, or accessibility; provide intentional content context inside the rendered layer.',
   paramDescriptions: {
     mode: 'positioning strategy: context = CSS anchor relative to trigger; fixed = explicit x/y coords',
     onShow: 'fires when layer becomes visible.',
@@ -145,7 +145,7 @@ export const docsDense = {
   },
   usage: {
     description:
-      'Core positioning hook for overlay content via CSS Anchor Positioning + Popover API. Foundation for custom popovers, hover cards, tooltips, fixed-position layers.',
+      'Core positioning hook for overlay content via CSS Anchor Positioning + Popover API. Foundation for custom popovers, hover cards, tooltips, fixed-position layers. Both modes use theme body defaults and isolate separable visual defaults without changing semantic provider inheritance, behavior, or accessibility; provide intentional content context inside the rendered layer.',
     bestPractices: [
       {
         guidance: true,

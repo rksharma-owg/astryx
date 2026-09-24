@@ -44,7 +44,7 @@ export const docs = {
       {property: 'padding', expand: 'container'},
     ],
   },
-  description: 'Modal dialog using the native <dialog> element.',
+  description: 'Modal dialog using the native <dialog> element. Modal and inline content starts with theme body text defaults. Separable ancestor visual defaults stop at the content boundary; semantic providers, behavior, and accessibility remain unchanged. Place intentional formatting and visual providers on the dialog content.',
   props: [
     {
       name: 'isOpen',
@@ -157,7 +157,7 @@ export const docsZh = {
 export const docsDense = {
   description: 'modal overlay that blocks page interaction until the user responds',
   usage: {
-    description: 'Dialog displays a modal overlay that blocks page interaction. Use for delete confirmations, edit forms, terms acceptance.',
+    description: 'Dialog displays a modal overlay that blocks page interaction. Use for delete confirmations, edit forms, terms acceptance. Modal and inline content uses theme body defaults and isolates separable visual defaults without changing semantic providers, behavior, or accessibility; provide intentional visual context inside the dialog.',
     bestPractices: [
       { guidance: true, description: 'Choose the right purpose: info for dismissable content, form to prevent accidental backdrop dismissal, required when user must respond.' },
       { guidance: true, description: 'Include a clear title in the header so users immediately understand what the dialog is asking.' },

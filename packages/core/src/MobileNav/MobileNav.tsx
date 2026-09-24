@@ -58,6 +58,8 @@ import {
   type ScrollbarGutterHold,
 } from '../hooks/scrollbarGutter';
 import {mergeProps, composeEventHandlers} from '../utils';
+import {layerTextReset} from '../Layer/layerTextReset.stylex';
+import {layerLayoutReset} from '../Layer/layerLayoutReset.stylex';
 import {overlayPaddingReset} from '../Layout/padding.stylex';
 import {LayerDepthProvider} from '../Layer/LayerDepthContext';
 import {useLayerDismissal} from '../Layer/useLayerDismissal';
@@ -584,11 +586,14 @@ export function MobileNav({
 
   return (
     <dialog
+      data-astryx-layer-content=""
       ref={useMergedRefs(ref, dialogRef)}
       id={dialogId}
       {...mergeProps(
         themeProps('mobile-nav', {side: resolvedSide}),
         stylex.props(
+          layerTextReset.reset,
+          layerLayoutReset.reset,
           styles.dialog,
           overlayPaddingReset.reset,
           isOpen && styles.open,

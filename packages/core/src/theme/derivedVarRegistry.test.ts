@@ -253,6 +253,8 @@ const CROSS_COMPONENT_VARS: Record<string, string[]> = {
   SelectableCard: ['--_card-ring'],
   // Toolbar offsets the TabList indicator it hosts.
   Toolbar: ['--_tab-indicator-bottom'],
+  // Layer resets that inherited rail offset; TabList still owns the channel.
+  Layer: ['--_tab-indicator-bottom'],
   // The destructive item variant recolors the Item it renders; Item owns,
   // documents and reads both slots.
   DropdownMenu: ['--_item-label-color', '--_item-description-color'],

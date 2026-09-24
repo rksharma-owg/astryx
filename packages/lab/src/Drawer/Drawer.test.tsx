@@ -2,7 +2,7 @@
 
 /**
  * @file Drawer.test.tsx
- * @input Uses vitest, @testing-library/react, Drawer component
+ * @input Uses vitest, @testing-library/react, Drawer and scoped providers
  * @output Unit tests for Drawer component behavior
  * @position Lab testing; validates Drawer.tsx implementation
  *
@@ -13,6 +13,7 @@ import {describe, it, expect, vi, beforeEach, afterEach} from 'vitest';
 import {render, screen, fireEvent, act} from '@testing-library/react';
 import {useState} from 'react';
 import {Drawer} from './Drawer';
+import {Button, ButtonGroup, SizeProvider} from '@astryxdesign/core';
 
 // Mock dialog methods since they're not fully implemented in jsdom
 beforeEach(() => {
@@ -48,6 +49,56 @@ afterEach(() => {
 });
 
 describe('Drawer', () => {
+  it.each([true, false])(
+    'resets inherited text in hasScrim=%s without blocking explicit styling',
+    hasScrim => {
+      const {rerender} = render(
+        <div
+          style={{textAlign: 'center', fontStyle: 'italic', whiteSpace: 'pre'}}>
+          <Drawer
+            isOpen
+            hasScrim={hasScrim}
+            onOpenChange={() => {}}
+            label="Details">
+            Reading content
+          </Drawer>
+        </div>,
+      );
+      expect(getComputedStyle(screen.getByRole('dialog'))).toMatchObject({
+        textAlign: 'start',
+        textAlignLast: 'auto',
+        fontStyle: 'normal',
+        whiteSpace: 'normal',
+        textTransform: 'none',
+        textShadow: 'none',
+        fontFamily: 'var(--font-family-body)',
+        fontSize: 'var(--text-body-size)',
+        fontWeight: 'var(--text-body-weight)',
+        lineHeight: 'var(--text-body-leading)',
+        textIndent: '0',
+        letterSpacing: 'normal',
+        wordSpacing: 'normal',
+        wordBreak: 'normal',
+        overflowWrap: 'normal',
+        hyphens: 'manual',
+      });
+      rerender(
+        <Drawer
+          isOpen
+          hasScrim={hasScrim}
+          onOpenChange={() => {}}
+          label="Details"
+          style={{textAlign: 'end', whiteSpace: 'pre-wrap'}}>
+          Reading content
+        </Drawer>,
+      );
+      expect(getComputedStyle(screen.getByRole('dialog'))).toMatchObject({
+        textAlign: 'end',
+        whiteSpace: 'pre-wrap',
+      });
+    },
+  );
+
   it('renders children when open', () => {
     render(
       <Drawer isOpen onOpenChange={() => {}} label="Host details">
@@ -649,6 +700,34 @@ describe('Drawer', () => {
       expect(dialog).toHaveAttribute('data-side', 'start');
     });
   });
+
+  it.each([true, false])(
+    'preserves existing provider behavior without adding a layer-depth boundary (scrim=%s)',
+    hasScrim => {
+      render(
+        <ButtonGroup label="Outer" size="lg" isDisabled>
+          <Drawer
+            isOpen
+            onOpenChange={() => {}}
+            label="Details"
+            hasScrim={hasScrim}>
+            <Button label="Independent" />
+            <SizeProvider value="sm">
+              <Button label="Explicit small" />
+            </SizeProvider>
+          </Drawer>
+        </ButtonGroup>,
+      );
+      expect(screen.getByRole('button', {name: 'Independent'})).toBeDisabled();
+      expect(screen.getByRole('button', {name: 'Independent'})).toHaveAttribute(
+        'data-size',
+        'lg',
+      );
+      expect(
+        screen.getByRole('button', {name: 'Explicit small'}),
+      ).toHaveAttribute('data-size', 'sm');
+    },
+  );
 
   describe('container padding isolation', () => {
     it('resets container padding custom properties on the root dialog element', () => {

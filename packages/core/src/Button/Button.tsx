@@ -4,7 +4,7 @@
 
 /**
  * @file Button.tsx
- * @input Uses React, ButtonHTMLAttributes, ReactNode, i18n (useTranslator)
+ * @input Uses React, ButtonHTMLAttributes, ReactNode, i18n, and layer-aware group end-cap selectors
  * @output Exports Button component, ButtonProps, ButtonVariant types
  * @position Core implementation; consumed by index.ts, tested by Button.test.tsx
  *
@@ -43,7 +43,10 @@ import {iconBoxSizeStyles, type IconSize} from '../Icon/IconSize.stylex';
 
 import {EDGE_COMP_ATTR} from '../Layout/edgeCompensation.stylex';
 import {useSize} from '../SizeContext/SizeContext';
-import {useButtonGroup} from '../ButtonGroup/ButtonGroupContext';
+import {
+  useButtonGroup,
+  useButtonGroupVisual,
+} from '../ButtonGroup/ButtonGroupContext';
 import {mergeProps} from '../utils';
 import {useMergedRefs} from '../hooks/useMergedRefs';
 import {useLinkComponent} from '../Link/useLinkComponent';
@@ -434,7 +437,8 @@ const loadingStyles = stylex.create({
  * The leading edge still uses `:first-child` — a member's button always precedes
  * its own layer, so the first button is genuinely `:first-child`.
  */
-const IS_LAST_ITEM = ':not(:has(~ *:not([popover]):not(template)))';
+const IS_LAST_ITEM =
+  ':not(:has(~ *:not([popover]):not(template):not(dialog):not([data-astryx-layer-content])))';
 
 const groupStyles = stylex.create({
   horizontal: {
@@ -554,6 +558,7 @@ export function Button({
   const t = useTranslator();
   const size = useSize(sizeProp, 'md');
   const buttonGroup = useButtonGroup();
+  const groupOrientation = useButtonGroupVisual();
 
   const [isPending, startTransition] = useTransition();
   // clickAction is normally fire-once (submit/save/pay), so a same-tick
@@ -647,18 +652,18 @@ export function Button({
     visuallyDisabled && styles.disabled,
     useAriaDisabled && styles.ariaDisabled,
     renderAsLink && styles.link,
-    !buttonGroup && styles.pressable,
-    buttonGroup &&
-      (buttonGroup.orientation === 'horizontal'
+    !groupOrientation && styles.pressable,
+    groupOrientation &&
+      (groupOrientation === 'horizontal'
         ? groupStyles.horizontal
         : groupStyles.vertical),
-    buttonGroup &&
+    groupOrientation &&
       (variant === 'primary' || variant === 'destructive') &&
-      (buttonGroup.orientation === 'horizontal'
+      (groupOrientation === 'horizontal'
         ? groupStyles.onSolidHorizontal
         : groupStyles.onSolidVertical), // Standalone floating buttons only — a grouped button's elevation is owned
     // by the ButtonGroup so the shared surface lifts as one unit.
-    !buttonGroup && elevationStyles[elevation],
+    !groupOrientation && elevationStyles[elevation],
     width != null && dynamicStyles.width(width),
     // AFTER the shared focus outline: the outline supplies width/style/offset
     // for every variant, and `destructive` re-colors just the ring to match
@@ -673,7 +678,7 @@ export function Button({
     themeProps('button', {
       variant,
       size,
-      elevation: buttonGroup ? 'none' : elevation,
+      elevation: groupOrientation ? 'none' : elevation,
     }),
     sharedStylexProps,
     className,

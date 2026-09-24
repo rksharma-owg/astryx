@@ -30,7 +30,10 @@ import {resolveSize, type AvatarShape, type AvatarSize} from '../Avatar';
 import * as stylex from '@stylexjs/stylex';
 import {mergeProps} from '../utils';
 import {composeEventHandlers} from '../utils/composeEventHandlers';
-import {AvatarGroupContext} from './AvatarGroupContext';
+import {
+  AvatarGroupContext,
+  AvatarGroupVisualContext,
+} from './AvatarGroupContext';
 import {themeProps} from '../utils/themeProps';
 import {useTranslator} from '../i18n';
 import {useListFocus} from '../hooks/useListFocus';
@@ -150,28 +153,30 @@ export function AvatarGroup({
 
   return (
     <AvatarGroupContext value={contextValue}>
-      <div
-        {...props}
-        ref={useMergedRefs(ref, listRef)}
-        role="group"
-        aria-label={ariaLabel}
-        aria-describedby={describedBy}
-        data-testid={testId}
-        onKeyDown={composeEventHandlers(onKeyDown, handleKeyDown)}
-        onFocus={composeEventHandlers(onFocus, handleFocus)}
-        {...mergeProps(
-          themeProps('avatar-group', {size, shape}),
-          stylex.props(styles.root, xstyle),
-          className,
-          style,
-        )}>
-        {children}
-        {hasInteractiveItems && (
-          <VisuallyHidden id={hintId}>
-            {t('@astryx.avatarGroup.keyboardHint')}
-          </VisuallyHidden>
-        )}
-      </div>
+      <AvatarGroupVisualContext value={contextValue}>
+        <div
+          {...props}
+          ref={useMergedRefs(ref, listRef)}
+          role="group"
+          aria-label={ariaLabel}
+          aria-describedby={describedBy}
+          data-testid={testId}
+          onKeyDown={composeEventHandlers(onKeyDown, handleKeyDown)}
+          onFocus={composeEventHandlers(onFocus, handleFocus)}
+          {...mergeProps(
+            themeProps('avatar-group', {size, shape}),
+            stylex.props(styles.root, xstyle),
+            className,
+            style,
+          )}>
+          {children}
+          {hasInteractiveItems && (
+            <VisuallyHidden id={hintId}>
+              {t('@astryx.avatarGroup.keyboardHint')}
+            </VisuallyHidden>
+          )}
+        </div>
+      </AvatarGroupVisualContext>
     </AvatarGroupContext>
   );
 }

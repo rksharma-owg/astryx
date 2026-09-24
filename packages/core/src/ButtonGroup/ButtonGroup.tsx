@@ -30,7 +30,10 @@ import {SizeProvider, useSize} from '../SizeContext/SizeContext';
 import {useListFocus} from '../hooks/useListFocus';
 import {mergeProps, composeEventHandlers} from '../utils';
 import type {BaseProps} from '../BaseProps';
-import {ButtonGroupContext} from './ButtonGroupContext';
+import {
+  ButtonGroupContext,
+  ButtonGroupVisualContext,
+} from './ButtonGroupContext';
 import type {ButtonGroupOrientation} from './ButtonGroupContext';
 import {themeProps} from '../utils/themeProps';
 
@@ -199,30 +202,32 @@ export function ButtonGroup({
 
   return (
     <ButtonGroupContext value={contextValue}>
-      <SizeProvider value={size}>
-        <div
-          ref={useMergedRefs(ref, listRef)}
-          {...props}
-          {...mergeProps(
-            themeProps('button-group', {size, orientation, elevation}),
-            stylex.props(
-              styles.group,
-              orientation === 'vertical' && styles.vertical,
-              elevationStyles[elevation],
-              xstyle,
-            ),
-            className,
-            style,
-          )}
-          role="group"
-          aria-label={label}
-          onKeyDown={composeEventHandlers(onKeyDown, handleKeyDown)}
-          onFocus={composeEventHandlers(onFocus, handleFocus)}
-          aria-disabled={isDisabled || undefined}
-          data-testid={testId}>
-          {children}
-        </div>
-      </SizeProvider>
+      <ButtonGroupVisualContext value={orientation}>
+        <SizeProvider value={size}>
+          <div
+            ref={useMergedRefs(ref, listRef)}
+            {...props}
+            {...mergeProps(
+              themeProps('button-group', {size, orientation, elevation}),
+              stylex.props(
+                styles.group,
+                orientation === 'vertical' && styles.vertical,
+                elevationStyles[elevation],
+                xstyle,
+              ),
+              className,
+              style,
+            )}
+            role="group"
+            aria-label={label}
+            onKeyDown={composeEventHandlers(onKeyDown, handleKeyDown)}
+            onFocus={composeEventHandlers(onFocus, handleFocus)}
+            aria-disabled={isDisabled || undefined}
+            data-testid={testId}>
+            {children}
+          </div>
+        </SizeProvider>
+      </ButtonGroupVisualContext>
     </ButtonGroupContext>
   );
 }

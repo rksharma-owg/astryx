@@ -4,7 +4,7 @@
 
 /**
  * @file useLayer.tsx
- * @input Uses React hooks, Popover API, CSS anchor positioning, typography tokens
+ * @input Uses React hooks, Popover API, CSS anchor positioning, shared text/provider boundaries
  * @output Exports the public useLayer hook plus internal trigger helpers.
  * @position Core layer utility; used by useHoverCard, useTooltip, etc.
  *
@@ -27,10 +27,12 @@ import React, {
 import * as stylex from '@stylexjs/stylex';
 import type {StyleXStyles} from '@stylexjs/stylex';
 import {createPortal} from 'react-dom';
+import {LayerContentBoundary} from './layerScopedContext';
 import {addAnchorName, removeAnchorName} from './anchorName';
 import {currentGesture, currentGestureHasClicked} from './gestureCounter';
 import {resolveLayerPortalTarget} from './layerHost';
-import {typeScaleVars, typographyVars} from '../theme/tokens.stylex';
+import {layerTextReset} from './layerTextReset.stylex';
+import {layerLayoutReset} from './layerLayoutReset.stylex';
 import {overlayPaddingReset} from '../Layout/padding.stylex';
 
 const styles = stylex.create({
@@ -47,12 +49,6 @@ const styles = stylex.create({
     borderWidth: 0,
     borderStyle: 'none',
     overflow: 'visible',
-    // A layer is hosted wherever its trigger happens to sit, so type that is
-    // inherited rather than declared makes the same component render at a
-    // different size in different callers.
-    fontFamily: typographyVars['--font-family-body'],
-    fontSize: typeScaleVars['--text-body-size'],
-    lineHeight: typeScaleVars['--text-body-leading'],
     // Override browser default [popover] background (canvas color)
     backgroundColor: 'transparent',
   },
@@ -905,6 +901,8 @@ function useLayerImplementation(
           : null;
 
       const stylexResult = stylex.props(
+        layerTextReset.reset,
+        layerLayoutReset.reset,
         styles.base,
         overlayPaddingReset.reset,
         offsetStyle,
@@ -919,6 +917,7 @@ function useLayerImplementation(
       // cascade; unsafe positions use the nearest corrective portal target.
       const layer = (
         <Container
+          data-astryx-layer-content=""
           ref={popoverRefCallback}
           id={id}
           role={role}
@@ -933,7 +932,7 @@ function useLayerImplementation(
           }}
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}>
-          {children}
+          <LayerContentBoundary>{children}</LayerContentBoundary>
         </Container>
       );
 
@@ -974,6 +973,8 @@ function useLayerImplementation(
       };
 
       const stylexResult = stylex.props(
+        layerTextReset.reset,
+        layerLayoutReset.reset,
         styles.base,
         overlayPaddingReset.reset,
         styles.fixed,
@@ -985,12 +986,13 @@ function useLayerImplementation(
 
       return (
         <div
+          data-astryx-layer-content=""
           ref={popoverRefCallback}
           id={id}
           popover={lightDismiss ? 'auto' : 'manual'}
           className={combinedClassName}
           style={{...stylexResult.style, ...positionStyle, ...extraStyle}}>
-          {children}
+          <LayerContentBoundary>{children}</LayerContentBoundary>
         </div>
       );
     },
