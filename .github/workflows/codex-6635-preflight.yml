@@ -8,7 +8,7 @@ permissions:
   contents: read
 
 env:
-  EXPECTED_PATCH_SHA: 6ae472a1522a7bb489b76ed0d1be99b1480d3d14
+  EXPECTED_PATCH_SHA: 039b046455cb1705137d40dd155fa64a58200d5e
 
 jobs:
   repository-checks:
