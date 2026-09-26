@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "repository": "facebook/astryx",
+  "pullRequest": {
+    "number": 6557,
+    "headSha": "f88e58ee5ace0f8cbf44a269e0372f7251abaf85",
+    "headRef": "cli-spec/integrations-authoring/component-name-collision",
+    "headRepository": "facebook/astryx",
+    "headRepositoryId": "1131202426"
+  },
+  "sourceRun": {
+    "id": 35970522611,
+    "attempt": 2,
+    "conclusion": "success"
+  },
+  "targets": {
+    "storybook": {
+      "available": false,
+      "path": "pr/6557/",
+      "indexSha256": null
+    },
+    "sandbox": {
+      "available": false,
+      "path": "pr/6557/sandbox/",
+      "indexSha256": null
+    }
+  }
+}

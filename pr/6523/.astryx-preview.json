@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "repository": "facebook/astryx",
+  "pullRequest": {
+    "number": 6523,
+    "headSha": "cc15d7a9dd7f4bc7007b8197d41a235c7c5e755d",
+    "headRef": "cli-spec/integrations-discovery/isolate-integration-templates",
+    "headRepository": "facebook/astryx",
+    "headRepositoryId": "1131202426"
+  },
+  "sourceRun": {
+    "id": 35968341107,
+    "attempt": 1,
+    "conclusion": "success"
+  },
+  "targets": {
+    "storybook": {
+      "available": false,
+      "path": "pr/6523/",
+      "indexSha256": null
+    },
+    "sandbox": {
+      "available": false,
+      "path": "pr/6523/sandbox/",
+      "indexSha256": null
+    }
+  }
+}

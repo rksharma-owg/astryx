@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "repository": "facebook/astryx",
+  "pullRequest": {
+    "number": 6518,
+    "headSha": "e5f8f9c45c6b236f551bf1cb4cbb6612030ffd8d",
+    "headRef": "cli-spec/doctor-gap/gap-report-control-docs",
+    "headRepository": "facebook/astryx",
+    "headRepositoryId": "1131202426"
+  },
+  "sourceRun": {
+    "id": 35967987798,
+    "attempt": 1,
+    "conclusion": "success"
+  },
+  "targets": {
+    "storybook": {
+      "available": false,
+      "path": "pr/6518/",
+      "indexSha256": null
+    },
+    "sandbox": {
+      "available": false,
+      "path": "pr/6518/sandbox/",
+      "indexSha256": null
+    }
+  }
+}

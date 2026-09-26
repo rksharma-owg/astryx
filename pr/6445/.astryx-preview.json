@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "repository": "facebook/astryx",
+  "pullRequest": {
+    "number": 6445,
+    "headSha": "f8b656601a90724772d9d99220053289c61daaca",
+    "headRef": "agentcloud/fix-codemod-project-analysis",
+    "headRepository": "facebook/astryx",
+    "headRepositoryId": "1131202426"
+  },
+  "sourceRun": {
+    "id": 35881567180,
+    "attempt": 1,
+    "conclusion": "success"
+  },
+  "targets": {
+    "storybook": {
+      "available": true,
+      "path": "pr/6445/",
+      "indexSha256": "b1897f3f4703faf8ebc0206d5d9223d232a0528f87b91aed5b2877c19b7952cd"
+    },
+    "sandbox": {
+      "available": true,
+      "path": "pr/6445/sandbox/",
+      "indexSha256": "a332fdc664930ab26a1e8884826e9d7ca6f9d33fdffba137a4d143e6b2043623"
+    }
+  }
+}

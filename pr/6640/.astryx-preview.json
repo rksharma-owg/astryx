@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "repository": "facebook/astryx",
+  "pullRequest": {
+    "number": 6640,
+    "headSha": "1fa729089dcc5c2c5ac4b668790a733b1f08062c",
+    "headRef": "feat/mobile-tokenizer-lab",
+    "headRepository": "facebook/astryx",
+    "headRepositoryId": "1131202426"
+  },
+  "sourceRun": {
+    "id": 36200152475,
+    "attempt": 1,
+    "conclusion": "success"
+  },
+  "targets": {
+    "storybook": {
+      "available": false,
+      "path": "pr/6640/",
+      "indexSha256": null
+    },
+    "sandbox": {
+      "available": true,
+      "path": "pr/6640/sandbox/",
+      "indexSha256": "96a6b18ef3c48391b1535e92b0d29567fa0cd385034bc92b73cb71629f0ca3e7"
+    }
+  }
+}

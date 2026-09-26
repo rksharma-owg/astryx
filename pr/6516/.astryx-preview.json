@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "repository": "facebook/astryx",
+  "pullRequest": {
+    "number": 6516,
+    "headSha": "1e761a20f616aefe0cbc3a9d5d748c3abe1986d2",
+    "headRef": "cli-spec/doctor-gap/doctor-text-keys",
+    "headRepository": "facebook/astryx",
+    "headRepositoryId": "1131202426"
+  },
+  "sourceRun": {
+    "id": 35967969262,
+    "attempt": 1,
+    "conclusion": "success"
+  },
+  "targets": {
+    "storybook": {
+      "available": false,
+      "path": "pr/6516/",
+      "indexSha256": null
+    },
+    "sandbox": {
+      "available": false,
+      "path": "pr/6516/sandbox/",
+      "indexSha256": null
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "repository": "facebook/astryx",
+  "pullRequest": {
+    "number": 6636,
+    "headSha": "51c9215bac340670bdd1ab36bf29852c04694e24",
+    "headRef": "night-watch-component-audit/ChatMessageList/2026-09-25",
+    "headRepository": "facebook/astryx",
+    "headRepositoryId": "1131202426"
+  },
+  "sourceRun": {
+    "id": 36135624277,
+    "attempt": 1,
+    "conclusion": "success"
+  },
+  "targets": {
+    "storybook": {
+      "available": false,
+      "path": "pr/6636/",
+      "indexSha256": null
+    },
+    "sandbox": {
+      "available": true,
+      "path": "pr/6636/sandbox/",
+      "indexSha256": "0a93cd43623dfa783cfb2e7e100cb907b584e87168e802de931d9f236ec3925e"
+    }
+  }
+}

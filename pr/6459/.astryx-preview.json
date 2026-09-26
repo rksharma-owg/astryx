@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "repository": "facebook/astryx",
+  "pullRequest": {
+    "number": 6459,
+    "headSha": "ae9fc45583f03d8bac88e91a4b51005afd9bdd1e",
+    "headRef": "feat/markdown-soft-breaks",
+    "headRepository": "facebook/astryx",
+    "headRepositoryId": "1131202426"
+  },
+  "sourceRun": {
+    "id": 35805695460,
+    "attempt": 1,
+    "conclusion": "success"
+  },
+  "targets": {
+    "storybook": {
+      "available": true,
+      "path": "pr/6459/",
+      "indexSha256": "b1897f3f4703faf8ebc0206d5d9223d232a0528f87b91aed5b2877c19b7952cd"
+    },
+    "sandbox": {
+      "available": true,
+      "path": "pr/6459/sandbox/",
+      "indexSha256": "e53250ad8ccd368a5899464e41cbdbb108396f39a981e516f7f3b007c7605262"
+    }
+  }
+}

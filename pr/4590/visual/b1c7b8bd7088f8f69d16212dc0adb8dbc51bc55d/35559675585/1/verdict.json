@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "status": "skipped",
+  "generatedAt": "2026-09-21T05:22:18.503Z",
+  "reason": "Broad stable scope is deferred to the daily release gate. It covers 386 trusted baseline shots instead of recapturing them for this PR.",
+  "context": {
+    "sha": "b1c7b8bd7088f8f69d16212dc0adb8dbc51bc55d",
+    "headSha": "b1c7b8bd7088f8f69d16212dc0adb8dbc51bc55d",
+    "baseSha": "3d1d2989234f21c5bf2028c6a565dc5d9bb48879",
+    "runId": "35559675585",
+    "runAttempt": "1",
+    "trustedScope": {
+      "hasStableVisual": true,
+      "broadStableVisual": true,
+      "stableComponents": [
+        "Item",
+        "List"
+      ],
+      "stableCoreFiles": [
+        "packages/core/src/Item/Item.tsx",
+        "packages/core/src/List/List.tsx",
+        "packages/core/src/List/ListContext.tsx",
+        "packages/core/src/List/ListItem.tsx",
+        "packages/core/src/theme/derivedVarRegistry.ts"
+      ],
+      "stableThemes": [],
+      "canaryPackages": []
+    }
+  },
+  "counts": {
+    "total": 386,
+    "unchanged": 0,
+    "changed": 0,
+    "added": 0,
+    "removed": 0,
+    "failed": 0
+  },
+  "components": [
+    "Item",
+    "List"
+  ],
+  "changes": [],
+  "added": [],
+  "removed": [],
+  "failures": []
+}

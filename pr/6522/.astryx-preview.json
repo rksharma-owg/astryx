@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "repository": "facebook/astryx",
+  "pullRequest": {
+    "number": 6522,
+    "headSha": "83304c1ce577375b3b248ae111bc1fd42587cac8",
+    "headRef": "cli-spec/integrations-discovery/discover-components-doc",
+    "headRepository": "facebook/astryx",
+    "headRepositoryId": "1131202426"
+  },
+  "sourceRun": {
+    "id": 35968330518,
+    "attempt": 1,
+    "conclusion": "success"
+  },
+  "targets": {
+    "storybook": {
+      "available": false,
+      "path": "pr/6522/",
+      "indexSha256": null
+    },
+    "sandbox": {
+      "available": false,
+      "path": "pr/6522/sandbox/",
+      "indexSha256": null
+    }
+  }
+}

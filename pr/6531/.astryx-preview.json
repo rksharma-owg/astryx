@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "repository": "facebook/astryx",
+  "pullRequest": {
+    "number": 6531,
+    "headSha": "3288c7fb8555309a9392e1ee46eda9829e39954d",
+    "headRef": "cli-spec/theme-catalog/palette-canonical-json",
+    "headRepository": "facebook/astryx",
+    "headRepositoryId": "1131202426"
+  },
+  "sourceRun": {
+    "id": 35969888702,
+    "attempt": 1,
+    "conclusion": "success"
+  },
+  "targets": {
+    "storybook": {
+      "available": false,
+      "path": "pr/6531/",
+      "indexSha256": null
+    },
+    "sandbox": {
+      "available": false,
+      "path": "pr/6531/sandbox/",
+      "indexSha256": null
+    }
+  }
+}

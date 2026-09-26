@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "repository": "facebook/astryx",
+  "pullRequest": {
+    "number": 6513,
+    "headSha": "bfeb9d1307421cd3d034be8364550d68ac01cb1b",
+    "headRef": "cli-spec/foundation-utils/assert-within-dangling-symlinks",
+    "headRepository": "facebook/astryx",
+    "headRepositoryId": "1131202426"
+  },
+  "sourceRun": {
+    "id": 35966796356,
+    "attempt": 1,
+    "conclusion": "success"
+  },
+  "targets": {
+    "storybook": {
+      "available": false,
+      "path": "pr/6513/",
+      "indexSha256": null
+    },
+    "sandbox": {
+      "available": false,
+      "path": "pr/6513/sandbox/",
+      "indexSha256": null
+    }
+  }
+}

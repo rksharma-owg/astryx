@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "repository": "facebook/astryx",
+  "pullRequest": {
+    "number": 6642,
+    "headSha": "668831a4a90c6422db78c9f6af20238958947dc8",
+    "headRef": "fix/markdown-table-escaped-pipes",
+    "headRepository": "facebook/astryx",
+    "headRepositoryId": "1131202426"
+  },
+  "sourceRun": {
+    "id": 36190903082,
+    "attempt": 1,
+    "conclusion": "success"
+  },
+  "targets": {
+    "storybook": {
+      "available": false,
+      "path": "pr/6642/",
+      "indexSha256": null
+    },
+    "sandbox": {
+      "available": true,
+      "path": "pr/6642/sandbox/",
+      "indexSha256": "d63acba4befae11996cd2ca7c045a32f82626a4789257c01a18c6a75ce7117ca"
+    }
+  }
+}

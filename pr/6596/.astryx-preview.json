@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "repository": "facebook/astryx",
+  "pullRequest": {
+    "number": 6596,
+    "headSha": "4c04445baf9b6117e45a7f9f20c03eea4e0df4f4",
+    "headRef": "cli-spec/integrations-discovery/template-fixture-rewrite",
+    "headRepository": "facebook/astryx",
+    "headRepositoryId": "1131202426"
+  },
+  "sourceRun": {
+    "id": 35981990931,
+    "attempt": 1,
+    "conclusion": "success"
+  },
+  "targets": {
+    "storybook": {
+      "available": false,
+      "path": "pr/6596/",
+      "indexSha256": null
+    },
+    "sandbox": {
+      "available": false,
+      "path": "pr/6596/sandbox/",
+      "indexSha256": null
+    }
+  }
+}

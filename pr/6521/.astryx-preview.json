@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "repository": "facebook/astryx",
+  "pullRequest": {
+    "number": 6521,
+    "headSha": "2dc7d76d728ea92f711e53b1ec34454e18b72f2b",
+    "headRef": "cli-spec/integrations-discovery/discover-text-fields",
+    "headRepository": "facebook/astryx",
+    "headRepositoryId": "1131202426"
+  },
+  "sourceRun": {
+    "id": 35968322549,
+    "attempt": 1,
+    "conclusion": "success"
+  },
+  "targets": {
+    "storybook": {
+      "available": false,
+      "path": "pr/6521/",
+      "indexSha256": null
+    },
+    "sandbox": {
+      "available": false,
+      "path": "pr/6521/sandbox/",
+      "indexSha256": null
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "repository": "facebook/astryx",
+  "pullRequest": {
+    "number": 6549,
+    "headSha": "6a1e884ffbebd8442521851e9407781742ac88c0",
+    "headRef": "cli-spec/runtime/json-flag-help-envelopes",
+    "headRepository": "facebook/astryx",
+    "headRepositoryId": "1131202426"
+  },
+  "sourceRun": {
+    "id": 36036766969,
+    "attempt": 1,
+    "conclusion": "success"
+  },
+  "targets": {
+    "storybook": {
+      "available": false,
+      "path": "pr/6549/",
+      "indexSha256": null
+    },
+    "sandbox": {
+      "available": false,
+      "path": "pr/6549/sandbox/",
+      "indexSha256": null
+    }
+  }
+}

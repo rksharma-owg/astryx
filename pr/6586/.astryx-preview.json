@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "repository": "facebook/astryx",
+  "pullRequest": {
+    "number": 6586,
+    "headSha": "9d52ec41839562bc768b57fc95dbc7718c66d562",
+    "headRef": "cli-spec/runtime/exit-codes-in-help",
+    "headRepository": "facebook/astryx",
+    "headRepositoryId": "1131202426"
+  },
+  "sourceRun": {
+    "id": 36037020218,
+    "attempt": 1,
+    "conclusion": "success"
+  },
+  "targets": {
+    "storybook": {
+      "available": false,
+      "path": "pr/6586/",
+      "indexSha256": null
+    },
+    "sandbox": {
+      "available": false,
+      "path": "pr/6586/sandbox/",
+      "indexSha256": null
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "repository": "facebook/astryx",
+  "pullRequest": {
+    "number": 6541,
+    "headSha": "e0032b73cba80bd0e941e34653ff2c683588a2e5",
+    "headRef": "cli-spec/lifecycle/resizable-codemod-inline-forms",
+    "headRepository": "facebook/astryx",
+    "headRepositoryId": "1131202426"
+  },
+  "sourceRun": {
+    "id": 35969987542,
+    "attempt": 1,
+    "conclusion": "success"
+  },
+  "targets": {
+    "storybook": {
+      "available": false,
+      "path": "pr/6541/",
+      "indexSha256": null
+    },
+    "sandbox": {
+      "available": false,
+      "path": "pr/6541/sandbox/",
+      "indexSha256": null
+    }
+  }
+}

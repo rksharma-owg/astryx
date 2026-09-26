@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "repo": "facebook/astryx",
+  "pr": 6420,
+  "headSha": "599c931a2906ec7babe28746ef350d23164aea36",
+  "testedSha": "599c931a2906ec7babe28746ef350d23164aea36",
+  "baseSha": "a3f81843b26bfadc27d486b13602598f11745461",
+  "run": {
+    "id": 35616950908,
+    "attempt": 1
+  },
+  "capture": {
+    "platform": "linux-arm64",
+    "browser": "chromium-149.0.7827.0",
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    }
+  },
+  "deltas": [],
+  "verdict": {
+    "version": 1,
+    "status": "pass",
+    "generatedAt": "2026-09-21T16:35:55.587Z",
+    "context": {
+      "sha": "599c931a2906ec7babe28746ef350d23164aea36",
+      "runId": "35616950908",
+      "runAttempt": "1",
+      "headSha": "599c931a2906ec7babe28746ef350d23164aea36",
+      "baseSha": "a3f81843b26bfadc27d486b13602598f11745461",
+      "ref": "refs/heads/main",
+      "trustedScope": {
+        "hasStableVisual": true,
+        "broadStableVisual": false,
+        "stableComponents": [
+          "List"
+        ],
+        "stableCoreFiles": [
+          "packages/core/src/List/ListItem.tsx"
+        ],
+        "stableThemes": [],
+        "canaryPackages": []
+      }
+    },
+    "platform": "linux-arm64",
+    "baseline": {
+      "capturedAt": "2026-09-12T01:13:50.430Z",
+      "sha": "e72a3662fd6dbdaf226dfba41a90a70b6827a6a4",
+      "platform": "linux-arm64"
+    },
+    "counts": {
+      "total": 2,
+      "unchanged": 2,
+      "changed": 0,
+      "added": 0,
+      "removed": 0,
+      "failed": 0
+    },
+    "changes": [],
+    "added": [],
+    "removed": [],
+    "failures": [],
+    "targeting": {
+      "unexercisedOverrides": [],
+      "undeclaredTargets": [],
+      "uncoveredTargets": []
+    }
+  }
+}

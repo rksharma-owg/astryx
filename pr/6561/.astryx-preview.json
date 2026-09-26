@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "repository": "facebook/astryx",
+  "pullRequest": {
+    "number": 6561,
+    "headSha": "b13570696b4865a5d19c69ab9c1dcd655338500f",
+    "headRef": "cli-spec/integrations-authoring/dry-run-receipt-evidence",
+    "headRepository": "facebook/astryx",
+    "headRepositoryId": "1131202426"
+  },
+  "sourceRun": {
+    "id": 35970558656,
+    "attempt": 1,
+    "conclusion": "success"
+  },
+  "targets": {
+    "storybook": {
+      "available": false,
+      "path": "pr/6561/",
+      "indexSha256": null
+    },
+    "sandbox": {
+      "available": false,
+      "path": "pr/6561/sandbox/",
+      "indexSha256": null
+    }
+  }
+}
