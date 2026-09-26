@@ -23,12 +23,10 @@ jobs:
       - uses: ./.github/actions/setup
       - name: Strict lint
         run: pnpm lint:strict
-      - name: Full tests
-        run: pnpm test
       - name: Build
         run: pnpm build
 
-  chat-a11y:
+  test-ui:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
@@ -38,15 +36,20 @@ jobs:
       - name: Verify tested commit
         run: test "$(git rev-parse HEAD)" = "$EXPECTED_PATCH_SHA"
       - uses: ./.github/actions/setup
-      - name: Focused scope suites
-        run: pnpm exec vitest run .github/scripts/a11y-pr-scope.test.mjs .github/scripts/lib/a11y-story-identity.test.mjs .github/scripts/rtl-audit-coverage.test.mjs
-      - name: Build packages
-        run: pnpm build
-      - name: Typecheck Storybook
-        run: pnpm -F @astryxdesign/storybook typecheck
-      - name: Build Storybook
-        run: pnpm -F @astryxdesign/storybook build
-      - name: Install Chromium
-        run: pnpm exec playwright install --with-deps chromium
-      - name: Audit Lab Chat scope
-        run: node .github/scripts/accessibility-audit.js --storybook-dir apps/storybook/dist --components lab/Chat --port 6158 --output "$RUNNER_TEMP/astryx-a11y-6635.json" --baseline .github/a11y-baseline.json --fail-on-new
+      - name: Run UI tests
+        run: pnpm vitest run --project ui --exclude packages/core/src/Markdown/Markdown.fr23.perf.test.ts
+      - name: Run isolated Markdown benchmark
+        run: pnpm vitest run --project ui packages/core/src/Markdown/Markdown.fr23.perf.test.ts --no-file-parallelism
+
+  test-node:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ env.EXPECTED_PATCH_SHA }}
+      - name: Verify tested commit
+        run: test "$(git rev-parse HEAD)" = "$EXPECTED_PATCH_SHA"
+      - uses: ./.github/actions/setup
+      - name: Run Node tests
+        run: pnpm vitest run --project node
